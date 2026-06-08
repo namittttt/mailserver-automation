@@ -18,30 +18,7 @@ apt update
 echo
 echo "[2/5] Installing Mail Server Packages..."
 
-DEBIAN_FRONTEND=noninteractive apt install -y \
-postfix \
-postfix-ldap \
-dovecot-core \
-dovecot-imapd \
-dovecot-pop3d \
-dovecot-lmtpd \
-dovecot-ldap \
-slapd \
-ldap-utils \
-roundcube \
-roundcube-core \
-apache2 \
-php \
-php-cli \
-php-common \
-php-ldap \
-php-mbstring \
-php-intl \
-php-mysql \
-pwgen \
-mailutils \
-telnet
-
+DEBIAN_FRONTEND=noninteractive apt install -y postfix postfix-ldap dovecot-core dovecot-imapd dovecot-pop3d dovecot-lmtpd dovecot-ldap slapd ldap-utils roundcube roundcube-core apache2 php php-cli php-common php-ldap php-mbstring php-intl php-mysql pwgen mailutils telnet
 echo
 echo "[3/5] Enabling Services..."
 

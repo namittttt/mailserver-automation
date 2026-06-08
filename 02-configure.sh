@@ -70,20 +70,22 @@ MAILHOST=$MAILHOST
 BASEDN=$BASEDN
 ADMINDN=$ADMINDN
 LDAPPASS=$LDAPPASS
+USER_OU=$USER_OU
+GROUP_OU=$GROUP_OU
 EOF
 
 echo
 echo "[1/9] Creating LDAP OUs..."
 
 cat > /tmp/ou.ldif <<EOF
-dn: ou=finance,$BASEDN
-objectClass: organizationalUnit
-ou: finance
 
-dn: ou=Banking,$BASEDN
+dn: ou=$USER_OU,$BASEDN
 objectClass: organizationalUnit
-ou: Banking
-EOF
+ou: $USER_OU
+
+dn: ou=$GROUP_OU,$BASEDN
+objectClass: organizationalUnit
+ou: $GROUP_OU
 
 ldapadd -x -D "$ADMINDN" -w "$LDAPPASS" -f /tmp/ou.ldif || true
 
